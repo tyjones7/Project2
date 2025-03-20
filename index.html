@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+   <header>
+       <h1>Dream Travel</h1>
+       <nav>
+           <ul>
+               <li><a href="#home">Home</a></li>
+               <li><a href="#destinations">Destinations</a></li>
+               <li><a href="#packages">Packages</a></li>
+               <li><a href="#contact">Contact</a></li>
+           </ul>
+       </nav>
+   </header>
+  
+   <section id="home" class="hero">
+       <h2>Your Adventure Starts Here</h2>
+       <p>Explore the world with our exclusive travel packages.</p>
+       <a href="#packages" class="button">View Packages</a>
+   </section>
+  
+   <section id="destinations">
+       <h2>Top Destinations</h2>
+       <div class="destination-grid">
+           <div class="destination-paris">Paris, France</div>
+           <div class="destination-rome">Rome, Italy</div>
+           <div class="destination-spain">Barcelona, Spain</div>
+           <div class="destination-bali">Bali, Indonesia</div>
+       </div>
+   </section>
+  
+   <section id="packages">
+       <h2>Exclusive Packages</h2>
+       <div class="package-list">
+           <button class="package package-luxury">Luxury Getaway</button>
+           <button class="package package-budget">Budget Explorer</button>
+           <button class="package package-family">Family Fun</button>
+           <button class="package package-romantic">Romantic Escape</button>
+       </div>
+   </section>
+  
+   <section id="contact">
+       <h2>Contact Us</h2>
+       <form>
+           <input type="text" placeholder="Your Name" required>
+           <input type="email" placeholder="Your Email" required>
+           <textarea placeholder="Your Message" required></textarea>
+           <button type="submit">Send Message</button>
+       </form>
+   </section>
+  
+   <footer>
+       <p>&copy; 2025 Dream Travel.</p>
+   </footer>
 </body>
 </html>
