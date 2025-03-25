@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 <body>
     <header>
-        <h1>Dream Travel</h1>
+        <h1 class="text-3xl">Dream Travel</h1>
         <nav>
-            <ul>
+            <!-- Hamburger menu button -->
+            <button id="menu-button" class="text-3xl cursor-pointer focus:outline-none relative z-50 ">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+    
+            <!-- Navigation list (visible on larger screens) -->
+            <ul class="hidden md:flex space-x-6">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#destinations">Destinations</a></li>
                 <li><a href="#packages">Packages</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+    
+        <!-- Dropdown menu for small screens -->
+        <div id="dropdown-menu" class="absolute right-4 top-16 bg-white w-48 shadow-lg rounded-lg opacity-0 invisible transition-all duration-300 z-40">
+            <ul class="flex flex-col text-center">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </header>
+    
   
     <section id="home" class="hero">
-        <h2>Your Adventure Starts Here</h2>
-        <p>Explore the world with our exclusive travel packages.</p>
+        <h2 class="text-3xl">Your Adventure Starts Here</h2>
+        <p class="text-xl">Explore the world with our exclusive travel packages.</p>
         <a href="#packages" class="button">View Packages</a>
     </section>
   
     <section id="destinations">
-        <h2>Top Destinations</h2>
+        <h2 class="text-3xl">Top Destinations</h2>
         <div class="destination-grid">
             <div class="destination-paris"></div>
             <div class="paris">
@@ -51,7 +72,7 @@
     </section>
   
    <section id="packages">
-        <h2>Exclusive Packages</h2>
+        <h2 class="text-3xl">Exclusive Packages</h2>
         <div class="package-list">
             <button class="package package-luxury">Luxury Getaway</button>
             <button class="package package-budget">Budget Explorer</button>
@@ -59,11 +80,6 @@
             <button class="package package-romantic">Romantic Escape</button>
         </div>
     </section>
-
-    <section id="">
-
-    </section>
-  
     <section id="contact">
         <h2>Contact Us</h2>
         <form>
@@ -76,6 +92,31 @@
   
     <footer>
         <p>&copy; 2025 Dream Travel.</p>
-     </footer>
+    </footer>
+
+    <!-- JavaScript for the dropdown menu -->
+    <!--  March 1, 2025 at 5:04 PM. I asked chat, "I am trying to make a dropdown menu for my website that opens when you click on the 3 bar hamburger icon. can you write me the code to make that work?" We went back and forth a couple of time until the javascript worked with and chat helped my tailwind CSS line up with the javascript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuButton = document.getElementById("menu-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+
+            menuButton.addEventListener("click", function(event) {
+                event.stopPropagation(); // Prevent menu from closing immediately
+                dropdownMenu.classList.toggle("opacity-0");
+                dropdownMenu.classList.toggle("invisible");
+                dropdownMenu.classList.toggle("opacity-100");
+                dropdownMenu.classList.toggle("visible");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.add("opacity-0", "invisible");
+                    dropdownMenu.classList.remove("opacity-100", "visible");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
